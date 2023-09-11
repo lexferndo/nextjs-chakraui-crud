@@ -10,6 +10,7 @@ export default function AddBook() {
       await fetch("http://localhost:3000/api/book", {
         method: "POST",
         body: formData,
+        cache: "no-store",
       });
     } catch (error) {
       console.log(error);

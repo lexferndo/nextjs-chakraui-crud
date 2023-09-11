@@ -13,6 +13,7 @@ export default function EditBook(props) {
       await fetch(`http://localhost:3000/api/book/${id}`, {
         method: "PUT",
         body: formData,
+        cache: "no-store",
       });
     } catch (error) {
       console.log(error);

@@ -3,7 +3,9 @@ import Heading from "../components/home/heading";
 
 export default async function HomePage() {
   async function getAllBook() {
-    const response = await fetch("http://localhost:3000/api/book");
+    const response = await fetch("http://localhost:3000/api/book", {
+      cache: "no-store",
+    });
     return response.json();
   }
   const books = await getAllBook();

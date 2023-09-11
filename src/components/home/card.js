@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 
 import Link from "next/link";
-import EditBook from "../editbook/formeditbook";
+import EditBook from "../editbook/editbook";
+import DeleteBook from "../deletebook/deletebook";
 
 export default function Cards(props) {
   const { book } = props;
@@ -37,19 +38,18 @@ export default function Cards(props) {
       <Divider />
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Link href={`#editbook/${book.id}`}></Link>
-          <EditBook
-            id={book.id}
-            title={book.title}
-            author={book.author}
-            publisher={book.publisher}
-            year={book.year}
-            pages={book.pages}
-          />
+          <Link href={`#editbook/${book.id}`}>
+            <EditBook
+              id={book.id}
+              title={book.title}
+              author={book.author}
+              publisher={book.publisher}
+              year={book.year}
+              pages={book.pages}
+            />
+          </Link>
 
-          <Button variant="ghost" colorScheme="red">
-            Delete
-          </Button>
+          <DeleteBook id={book.id} />
         </ButtonGroup>
       </CardFooter>
     </Card>

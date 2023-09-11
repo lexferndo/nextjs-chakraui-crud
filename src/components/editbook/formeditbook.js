@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function FormBook(props) {
+  // console.log(props);
   const [title, setTitle] = useState(props.title);
   const [author, setAuthor] = useState(props.author);
   const [publisher, setPublisher] = useState(props.publisher);
@@ -30,9 +31,9 @@ export default function FormBook(props) {
 
   const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    props.onSubmit({
+    await props.onSubmit({
       title,
       author,
       publisher,
@@ -44,6 +45,7 @@ export default function FormBook(props) {
     router.refresh();
   };
 
+  // console.log(props);
   return (
     <>
       <Button variant="solid" onClick={onOpen} colorScheme="blue">
